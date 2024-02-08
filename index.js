@@ -134,9 +134,12 @@ function SaveName(){
     if(userlength > 5){
         alert("Please ensure your name is no longer than 5 characters!")
     }
-    localStorage.setItem('Username', usernameVal)
-    username.value = "";
-    GetUsername();
+    else{
+        localStorage.setItem('Username', usernameVal)
+        username.value = "";
+        GetUsername();
+    }
+    
 }
 
 function GetUsername(){
