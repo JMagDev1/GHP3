@@ -70,10 +70,12 @@ function SaveLink(){
 
     if(!link.includes('https://')){
         alert("Please ensure link is in correct format - https://...") //Link Validation
+        return
     }
 
     if(storedLinks.length >= 20){
         alert("Max number of links reached, please delete one and try again.")
+        return
     }
 
     else{
@@ -122,6 +124,7 @@ function ClearLink() {
 
     storedLinks.splice(indexToRemove, 1);
     localStorage.setItem('storedLinks', JSON.stringify(storedLinks));
+    nameToRemove.value = "";
     displayLinks();
 }
 
