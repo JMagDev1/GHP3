@@ -1,0 +1,443 @@
+*,
+.body{
+    margin: 0;
+    padding: 0; 
+    overflow: hidden;
+}
+
+/* START OF LOADING STYLES*/
+  .container {
+    --uib-size: 55px;
+    --uib-color: black;
+    --uib-speed: 1.3s;
+    --uib-bg-opacity: .1;
+    height: calc(var(--uib-size) * (2.1 / 5));
+    width: var(--uib-size);
+    transform-origin: center;
+    overflow: visible;
+  }
+
+  .car {
+    fill: none;
+    stroke: var(--uib-color);
+    stroke-dasharray: 15, 85;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: travel var(--uib-speed) linear infinite;
+    will-change: stroke-dasharray, stroke-dashoffset;
+    transition: stroke 0.5s ease;
+  }
+
+  .track {
+    stroke: var(--uib-color);
+    opacity: var(--uib-bg-opacity);
+  }
+
+  @keyframes travel {
+    0% {
+      stroke-dashoffset: 0;
+    }
+
+    100% {
+      stroke-dashoffset: 100;
+    }
+  }
+
+/* START OF PAGE STYLES*/
+
+#Main-Container{
+    display: none;
+    z-index: 5;
+    width: fit-content;
+    height: fit-content;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+#overlay{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 15vh;
+  padding-top: 10%;
+  padding-right: 4%;
+}
+
+#txtbxSearch{
+    position: absolute;
+    top: 30vh;
+    left: 32vw;
+}
+
+#SearchBarInput{
+    font-size: 1rem;
+    width: 35vw;
+    height: 5vh;
+    border: solid 2px black;
+    border-radius: 2vw;
+    padding-left: 1vw;
+    background-color: transparent;
+
+}
+
+#txtTime{
+    position: absolute;
+    top: 2vw;
+    left: 42vw;
+    font-size: 5vw;
+}
+
+#txtName{
+    position: absolute;
+    top: 8vw;
+    left: 40vw;
+    font-size: 4vw;
+}
+
+#SettingsIcon{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 1vh;
+    left: 1vw;
+    border-radius: 0.5vw;
+    background-color: rgba(255, 255, 255, 0.45);
+}
+
+#OpenSettings:hover{
+    cursor: pointer;
+}
+
+#SettingsBar{
+    padding: 1%;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: none;
+    height: fit-content;
+    background-color: rgba(150, 150, 150, 0.75);
+    border-radius: 1vw;
+}
+
+#BGImage{
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    width: 100vw;
+    height: 100vh;
+    z-index: -5;
+}
+
+#NameInputLink,
+#LinkInputLink,
+#NameofUser,
+#removeName{
+    padding-left: 0.5%;
+    width: 8vw;
+    height: 4vh;
+    border: solid 1px rgba(0, 0, 0, 0.5);
+    border-radius: 0.5vw;
+    font-size: 0.75rem;
+}
+
+#Blur,
+#Brightness,
+#ColourTheme{
+    padding-left: 0.5%;
+    font-size: 0.8rem;
+    width: 10vw;
+}
+
+#LinkInputLink{
+    width: 12vw;
+}
+
+#BtnSaveLink,
+#BtnSaveName,
+#BtnRemoveLink{
+    width: 8vw;
+    height: 4vh;
+    border: solid 1px black;
+    border-radius: 0.5vw;
+    font-size: 0.75rem;
+}
+
+#selectImageType{
+    border-radius: 1vw;
+    padding-left: 0.5%;
+    height: 4vh;
+    width: 8vw;
+}
+
+#BtnSaveLink:hover,
+#BtnSaveName:hover,
+#BtnRemoveLink:hover{
+    cursor: pointer;
+    background-color: rgba(68, 68, 210, 0.75);
+}
+
+#BtnContainer{
+    position: absolute;
+    top: 40%;
+    left: 19%;
+    width: 65vw;
+    height: 50vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 0.5vw;
+    padding-left: 1vw;
+    padding-top: 1vh;
+}
+
+.button{
+    width: 12vw;
+    height: 10vh;
+    font-size: 1.25rem;
+    border: solid;
+    border-radius: 10vw;
+    background: transparent;
+}
+
+.button:hover{
+    cursor: pointer;
+}
+
+#NewImage{
+    position: absolute;
+    top: 1vh;
+    right: 1vw;
+    background-color: rgba(255, 255, 255, 0.45);
+    border-radius: 0.5vw;
+}
+
+#GetNewImg{
+    background: transparent;
+    border: none;
+}
+
+#GetNewImg:hover,
+#ColourInput{
+    cursor: pointer;
+}
+
+
+
+@media only screen and (max-width: 1200px){
+  #BtnContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 0.25vw;
+  }
+
+  #NameInputLink,
+  #LinkInputLink,
+  #NameofUser,
+  #removeName{
+      padding-left: 0.75%;
+      width: 7vw;
+      height: 2vh;
+      border: solid 1px rgba(0, 0, 0, 0.5);
+      border-radius: 0.5vw;
+      font-size: 0.5rem;
+  }
+
+  #Blur,
+  #Brightness,
+  #ColourTheme{
+      padding-left: 1%;
+      font-size: 0.6rem;
+      width: 14vw;
+  }
+
+  #LinkInputLink{
+      width: 10vw;
+  }
+
+  #BtnSaveLink,
+  #BtnSaveName,
+  #BtnRemoveLink{
+      width: 5vw;
+      height: 2vh;
+      border: solid 1px black;
+      border-radius: 0.5vw;
+      font-size: 0.5rem;
+  }
+
+  #selectImageType{
+      border-radius: 1vw;
+      padding-left: 0.5%;
+      height: 2vh;
+      width: 8vw;
+  }
+  .button{
+    width: 12vw;
+    height: 6vh;
+    font-size: 1.25rem;
+    border: solid;
+    border-radius: 10vw;
+    background: transparent;
+  }
+  #SearchBarInput{
+    font-size: 1rem;
+    width: 35vw;
+    height: 2vh;
+    border: solid 2px black;
+    border-radius: 2vw;
+    padding-left: 1vw;
+    background-color: transparent;
+  }
+
+  #overlay{
+    padding-right: 5%;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  #BtnContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 0.5vw;
+  }
+
+  #NameInputLink,
+  #LinkInputLink,
+  #NameofUser,
+  #removeName{
+      padding-left: 0.75%;
+      width: 9vw;
+      height: 3vh;
+      border: solid 1px rgba(0, 0, 0, 0.5);
+      border-radius: 0.5vw;
+      font-size: 0.5rem;
+  }
+
+  #Blur,
+  #Brightness,
+  #ColourTheme{
+      padding-left: 1%;
+      font-size: 0.6rem;
+      width: 12vw;
+  }
+
+  #LinkInputLink{
+      width: 8vw;
+  }
+
+  #BtnSaveLink,
+  #BtnSaveName,
+  #BtnRemoveLink{
+      width: 10vw;
+      height: 3vh;
+      border: solid 1px black;
+      border-radius: 0.5vw;
+      font-size: 0.5rem;
+  }
+
+  #selectImageType{
+      border-radius: 1vw;
+      padding-left: 0.5%;
+      height: 2vh;
+      width: 6vw;
+  }
+  .button{
+    width: 12vw;
+    height: 6vh;
+    font-size: 1.25rem;
+    border: solid;
+    border-radius: 10vw;
+    background: transparent;
+  }
+  #SearchBarInput{
+    font-size: 0.75rem;
+    width: 35vw;
+    height: 2vh;
+    border: solid 2px black;
+    border-radius: 2vw;
+    padding-left: 1vw;
+    background-color: transparent;
+  }
+
+  #overlay{
+    padding-right: 15%;
+  }
+}
+
+@media only screen and (max-width: 425px){
+  #BtnContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0.25vw;
+  }
+
+  #NameInputLink,
+  #LinkInputLink,
+  #NameofUser,
+  #removeName{
+      padding-left: 0.75%;
+      width: 10vw;
+      height: 3vh;
+      border: solid 1px rgba(0, 0, 0, 0.5);
+      border-radius: 0.5vw;
+      font-size: 0.25rem;
+  }
+
+  #Blur,
+  #Brightness,
+  #ColourTheme{
+      padding-left: 1%;
+      font-size: 0.4rem;
+      width: 10vw;
+  }
+
+  #Blur,
+  #Brightness{
+    display: none;
+  }
+
+  #LinkInputLink{
+      width: 8vw;
+  }
+
+  #BtnSaveLink,
+  #BtnSaveName,
+  #BtnRemoveLink{
+      width: 12vw;
+      height: 3vh;
+      border: solid 1px black;
+      border-radius: 0.5vw;
+      font-size: 0.4rem;
+  }
+
+  #selectImageType{
+      border-radius: 1vw;
+      padding-left: 0.5%;
+      height: 4vh;
+      width: 12vw;
+      font-size: 0.25rem;
+  }
+  .button{
+    width: 14vw;
+    height: 6vh;
+    font-size: 0.5rem;
+    border: solid;
+    border-radius: 10vw;
+    background: transparent;
+  }
+  #SearchBarInput{
+    font-size: 0.75rem;
+    width: 35vw;
+    height: 2vh;
+    border: solid 2px black;
+    border-radius: 2vw;
+    padding-left: 1vw;
+    background-color: transparent;
+
+  }
+
+  #overlay{
+    padding-right: 20%;
+  }
+}
