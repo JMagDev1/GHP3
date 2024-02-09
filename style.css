@@ -165,7 +165,8 @@
     font-size: 0.75rem;
 }
 
-#selectImageType{
+#selectImageType,
+#PresetSelector{
     border-radius: 1vw;
     padding-left: 0.5%;
     height: 4vh;
@@ -220,7 +221,7 @@
 
 #GetNewImg:hover,
 #ColourInput:hover,
-#PresetSelectContainer{
+#PresetSelectContainer:hover{
     cursor: pointer;
 }
 
