@@ -46,11 +46,18 @@
         <div id="txtTime"></div>
         <div id="txtName">User</div>
 
+        <div id="PresetSelectContainer">
+            <select id="PresetSelector">
+                <option value="P1">Preset 1</option>
+                <option value="Custom">Custom</option>
+            </select>
+        </div>
+
         <div id="NewImage">
             <button id="GetNewImg" onclick="GetNewImage()"><svg id="GetNewImgSVG" stroke="black" fill="white" stroke-width="0" viewBox="0 0 24 24" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke="#000" stroke-width="2" d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9"></path></svg></button>
         </div>
 
-        <form action="https://www.google.com/search?q=" method="get">
+        <form action="https://www.google.com/search?q=" method="get" target="_blank">
             <div id="txtbxSearch">
                 <input type="text" name="q" id="SearchBarInput" placeholder="Search">
             </div>
@@ -88,6 +95,28 @@
 
 
         <div id="BtnContainer"></div>
+
+        <div class="links-container" id="Preset1Container">
+            <button id="Link" type="button" class="link" onclick="window.open('https://mail.google.com/mail/u/0/#inbox', '_blank')">Gmail</button>
+            <button id="Link1" type="button" class="link" onclick="window.open('https://www.ccea.org.uk', '_blank')">CCEA</button>
+            <button id="Link2" type="button" class="link" onclick="window.open('https://www.amazon.co.uk', '_blank')">Amazon</button>
+            <button id="Link3" type="button" class="link" onclick="window.open('https://cad.onshape.com/signin', '_blank')">Onshape</button>
+
+            <button id="Link4" type="button" class="link" onclick="window.open('https://assetstore.unity.com/', '_blank')">Unity Asset Store</button>
+            <button id="Link5" type="button" class="link" onclick="window.open('https://www.youtube.com', '_blank')">YouTube</button>
+            <button id="Link6" type="button" class="link" onclick="window.open('https://studio.youtube.com/', '_blank')">YouTube Studio</button>
+            <button id="Link7" type="button" class="link" onclick="window.open('https://www.github.com', '_blank')">GitHub</button>
+            
+            <button id="Link8" type="button" class="link" onclick="window.open('https://classroom.google.com/u/1/h', '_blank')">Classroom</button>
+            <button id="Link9" type="button" class="link" onclick="window.open('https://ids.c2kschools.net/nidp/idff/sso?id=3&sid=0&option=credential&sid=0', '_blank')">My School</button>
+            <button id="Link10" type="button" class="link" onclick="window.open('https://UCAS.com/', '_blank')">UCAS</button>
+            <button id="Link11" type="button" class="link" onclick="window.open('https://realtimecolors.com/', '_blank')">RealTime Colours</button>
+            
+            <button id="Link12" type="button" class="link" onclick="window.open('https://thingiverse.com/', '_blank')">Thingiverse</button>
+            <button id="Link13" type="button" class="link" onclick="window.open('https://docs.google.com/document/?usp=docs_alc&authuser=0', '_blank')">Docs</button>
+            <button id="Link14" type="button" class="link" onclick="window.open('https://unsplash.com', '_blank')">Unsplash</button>
+            <button id="Link15" type="button" class="link" onclick="window.open('https://new.express.adobe.com/tools/remove-background', '_blank')">Background Remover</button>
+        </div>
 
     </div>
 

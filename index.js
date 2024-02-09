@@ -22,6 +22,29 @@ window.onload = function GetBGImage(){
     GetUsername();
     GetBGType();
     GetThemeColourLoad();
+    GetPreset();
+}
+
+//GET PRESET 
+const PresetSelector = document.getElementById('PresetSelector');
+PresetSelector.oninput = function SetPreset(){
+    const Preset = PresetSelector.value;
+    localStorage.setItem("Preset", Preset)
+    window.location.reload();
+}
+
+function GetPreset(){
+    const PresetFromLocal = localStorage.getItem("Preset")
+    PresetSelector.value = PresetFromLocal;
+
+    if(PresetFromLocal == "P1"){
+        document.getElementById("NameInputLink").style.display = "none";
+        document.getElementById("LinkInputLink").style.display = "none";
+        document.getElementById("BtnSaveLink").style.display = "none";
+        document.getElementById("removeName").style.display = "none"
+        document.getElementById("BtnRemoveLink").style.display = "none"
+    }
+
 }
 
 //SETTINGS MENU
@@ -75,7 +98,7 @@ function SaveLink(){
 
     if(storedLinks.length >= 20){
         alert("Max number of links reached, please delete one and try again.")
-        return
+        return43
     }
 
     else{
@@ -90,21 +113,31 @@ function SaveLink(){
 }
 
 function displayLinks() {
-    const storedLinks = JSON.parse(localStorage.getItem('storedLinks')) || [];
-    const container = document.getElementById('BtnContainer');
-    container.innerHTML = '';
-  
-    storedLinks.forEach((link) => {
-      const button = document.createElement('button');
-      button.textContent = link.name;
-      button.className = 'button';
-      button.onclick = function(){
-        window.open(link.link);
-      };
-      container.appendChild(button);
-    });
+    if(localStorage.getItem("Preset") == "P1"){
+        document.getElementById('BtnContainer').style.display = "none"
+        document.getElementById('Preset1Container').style.display = "grid"
+    }
 
-    GetButtonColours();
+    else{
+        document.getElementById('BtnContainer').style.display = "grid"
+        document.getElementById('Preset1Container').style.display = "none"
+
+        const storedLinks = JSON.parse(localStorage.getItem('storedLinks')) || [];
+        const container = document.getElementById('BtnContainer');
+        container.innerHTML = '';
+      
+        storedLinks.forEach((link) => {
+          const button = document.createElement('button');
+          button.textContent = link.name;
+          button.className = 'button';
+          button.onclick = function(){
+            window.open(link.link);
+          };
+          container.appendChild(button);
+        });
+        GetButtonColours();
+    }
+    
 }
 
 function ClearLink() {
@@ -199,13 +232,25 @@ function GetNewImage(){
 const ColourInput = document.getElementById('ColourInput')
 
 ColourInput.oninput = function ChangeAllColours(){
-    localStorage.setItem("ThemeColour", ColourInput.value)
-    const ThemeColour = localStorage.getItem("ThemeColour");
-    document.getElementById('txtTime').style.color = ThemeColour;
-    document.getElementById('txtName').style.color = ThemeColour;
-    document.getElementById('SearchBarInput').style.border = 'solid' + ThemeColour;
-    document.getElementById('SearchBarInput').style.color = ThemeColour;
-    GetButtonColours();
+    if(localStorage.getItem("Preset") == "P1"){
+        localStorage.setItem("ThemeColour", ColourInput.value)
+        const ThemeColour = localStorage.getItem("ThemeColour");
+        document.getElementById('txtTime').style.color = ThemeColour;
+        document.getElementById('txtName').style.color = ThemeColour;
+        document.getElementById('SearchBarInput').style.border = 'solid' + ThemeColour;
+        document.getElementById('SearchBarInput').style.color = ThemeColour;
+        GetButtonColoursPreset1();
+    }
+    else{
+        localStorage.setItem("ThemeColour", ColourInput.value)
+        const ThemeColour = localStorage.getItem("ThemeColour");
+        document.getElementById('txtTime').style.color = ThemeColour;
+        document.getElementById('txtName').style.color = ThemeColour;
+        document.getElementById('SearchBarInput').style.border = 'solid' + ThemeColour;
+        document.getElementById('SearchBarInput').style.color = ThemeColour;
+        GetButtonColours();
+    }
+    
 }
 
 function GetButtonColours(){
@@ -217,13 +262,35 @@ function GetButtonColours(){
     }
 }
 
-function GetThemeColourLoad(){
+function GetButtonColoursPreset1(){
+    var buttonsElements = document.getElementsByClassName("link");
     const ThemeColour = localStorage.getItem("ThemeColour");
-    document.getElementById('txtTime').style.color = ThemeColour;
-    document.getElementById('txtName').style.color = ThemeColour;
-    document.getElementById('SearchBarInput').style.border = 'solid' + ThemeColour;
-    document.getElementById('SearchBarInput').style.color = ThemeColour;
-    document.getElementById('GetNewImgSVG').style.stroke = ThemeColour;
-    GetButtonColours();
-    document.getElementById('ColourInput').value = ThemeColour;
+    for(var i = 0; i < buttonsElements.length; i++){
+        buttonsElements[i].style.border = 'solid'+ ThemeColour;
+        buttonsElements[i].style.color = ThemeColour;
+    }
+}
+
+function GetThemeColourLoad(){
+    if(localStorage.getItem("Preset") == "P1"){
+        const ThemeColour = localStorage.getItem("ThemeColour");
+        document.getElementById('txtTime').style.color = ThemeColour;
+        document.getElementById('txtName').style.color = ThemeColour;
+        document.getElementById('SearchBarInput').style.border = 'solid' + ThemeColour;
+        document.getElementById('SearchBarInput').style.color = ThemeColour;
+        document.getElementById('GetNewImgSVG').style.stroke = ThemeColour;
+        GetButtonColoursPreset1();
+        document.getElementById('ColourInput').value = ThemeColour;
+    }
+    else{
+        const ThemeColour = localStorage.getItem("ThemeColour");
+        document.getElementById('txtTime').style.color = ThemeColour;
+        document.getElementById('txtName').style.color = ThemeColour;
+        document.getElementById('SearchBarInput').style.border = 'solid' + ThemeColour;
+        document.getElementById('SearchBarInput').style.color = ThemeColour;
+        document.getElementById('GetNewImgSVG').style.stroke = ThemeColour;
+        GetButtonColours();
+        document.getElementById('ColourInput').value = ThemeColour;
+    }
+    
 }
