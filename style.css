@@ -202,10 +202,6 @@
     background: transparent;
 }
 
-.button:hover{
-    cursor: pointer;
-}
-
 #NewImage{
     position: absolute;
     top: 1vh;
@@ -252,7 +248,8 @@
   background: transparent;
 }
 
-.link:hover{
+.link:hover,
+.button:hover{
   cursor: pointer;
   transform: scale(110%);
 }

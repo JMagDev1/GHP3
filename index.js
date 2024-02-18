@@ -294,3 +294,17 @@ function GetThemeColourLoad(){
     }
     
 }
+
+document.getElementById("SearchBarInput").addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        searchGoogle();
+    }
+});
+
+function searchGoogle() {
+    var searchTerm = document.getElementById("SearchBarInput").value;
+    var searchUrl = "https://www.google.com/search?q=" + encodeURIComponent(searchTerm);
+    window.open(searchUrl, "_blank"); // Open in new tab
+    document.getElementById("SearchBarInput").value = ""; // Clear input field
+}
