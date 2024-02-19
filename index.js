@@ -197,12 +197,14 @@ const BrightnessRange = document.getElementById('BrightnessRange');
 BlurRange.oninput = function BlurBackground(){
     const BlurVal = BlurRange.value;
     const BrightnessVal = BrightnessRange.value;
+    //here only need to get brightness on input then write blur
     document.getElementById('BGImage').style.filter = "blur(" + BlurVal + "px) brightness(" + BrightnessVal + "%)";
 }
 
 BrightnessRange.oninput = function AdjustBackgroundBrightness(){
     const BlurVal = BlurRange.value;
     const BrightnessVal = BrightnessRange.value;
+    //here only need to get blur on input then write brightness
     document.getElementById('BGImage').style.filter = "blur(" + BlurVal + "px) brightness(" + BrightnessVal + "%)";
 }
 
